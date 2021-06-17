@@ -1,0 +1,65 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-nav-list{
+  color: rgb(247, 241, 241)
+
+}
+mat-sidenav-container{
+  height: 100%;
+}
+mat-sidenav, mat-sidenav-content{
+  padding: 16px;
+
+}
+mat-sidenav{
+  background:#404f9f;
+  width: 200px;
+}
+h2{
+  font-family: cursive;
+}
+
+.profile-card{
+  text-align: center;
+  padding:0 20px 20px 20px;
+
+}
+.example-icon {
+  padding: 0 14px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+/* img{
+
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+
+} */
+#divchart{
+display: block;
+width: 800px;
+height: 400px;
+padding-left: 120px;
+}
+
+
+  .but{
+    text-align: right;
+  }
+
+  h2{
+    font-family: cursive;
+  }
+  h3{
+    text-align:center;
+    font-weight:900;
+    font-size:xx-large;
+    font-style: oblique;
+    font-family: 'Courier New', Courier, monospace;
+
+  }

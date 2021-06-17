@@ -1,0 +1,252 @@
+<mat-toolbar color="primary">
+  <span>Hotel Management System</span>
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+
+
+
+<div class="card pb-5 pl-5">
+  <h2 class="pt-4 pl-5">Bill Section</h2>
+  <form [formGroup]= "userForm" class="bam pl-5">
+    <div class="mt-5 box ">
+      <div class="form-row">
+        <div class="col-md-12 ">
+          <div class="form-group mt-4 ">
+            <label>Name
+            </label>
+
+          </div>
+          <div class="form-row " style="margin-top:10px">
+              <div class="col">
+                <input type="text" formControlName = "name" class="form-control" >
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group mt-4">
+            <label>Number of Chlidren
+            </label>
+
+          </div>
+          <div class="form-row" style="margin: top 10px;">
+              <div class="col">
+               <select name="child" class="form-control" formControlName = "child">
+                 <option value="1">1</option>
+                 <option value="2">2</option>
+                 <option value="3">3</option>
+                 <option value="4">4</option>
+               </select>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group mt-4">
+            <label>Number of Adults
+            </label>
+
+          </div>
+          <div class="form-row" style="margin: top -10px;">
+              <div class="col">
+                <select name="child" class="form-control" formControlName = "adult">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group mt-4">
+            <label>Number of nights
+            </label>
+
+          </div>
+          <div class="form-row" style="margin: top -10px;">
+              <div class="col">
+                <select name="child" class="form-control" formControlName = "night">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group mt-4">
+            <label>Number of days
+            </label>
+
+          </div>
+          <div class="form-row" style="margin: top -10px;">
+              <div class="col">
+                <select name="child" class="form-control" formControlName = "date">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group mt-4">
+            <label>Room Type
+            </label>
+
+          </div>
+          <div class="form-row" style="margin: top -10px;">
+              <div class="col">
+                <select name="child" class="form-control" formControlName = "roomtype">
+                  <option value="Basic">Basic</option>
+                  <option value="Single">Single</option>
+                  <option value="Family">Family</option>
+                  <option value="HoneyMoon Type">HoneyMoon Type</option>
+                  <option value="Basic">Basic</option>
+                </select>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12 ">
+          <div class="form-group mt-4 ">
+            <label>Amount
+            </label>
+
+          </div>
+          <div class="form-row " style="margin-top:10px">
+              <div class="col">
+                <input type="text" formControlName = "amount" class="form-control" >
+              </div>
+          </div>
+        </div>
+
+        <div class=" mt-4">
+          <div class="col">
+<button type="button" class="btn btn-primary" (click)= "addItem()"   data-toggle="modal" data-target="#exampleModal">Show Bill</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hotel Bill</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+
+
+
+
+
+ <button printSectionId = "demo" ngxPrint  class="btn btn-info">Print Bill</button>
+    <div class="my-5 page" style="border: 2px solid black;" id="demo">
+        <div class="p-5">
+            <section class="top-content bb d-flex justify-content-between">
+                <div class="logo">
+                  <i class='fas fa-umbrella-beach' style='font-size:48px;color:red'></i>
+                </div>
+                <div class="top-left">
+
+                    <div class="position-relative">
+                        <p>Bill no. <span>XXXX</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="store-user mt-5">
+                <div class="col-10">
+                    <div class="row bb pb-3">
+                        <div class="col-7">
+                            <p>Hotel,</p>
+                            <h2>My Hotel</h2>
+                            <p class="address"> 777 Madhav Puram, <br> Sector-3 Delhi Road, <br>Meerut </p>
+                            <div class="txn mt-2">GSTIN: XXXXXXX</div>
+                        </div>
+                        <div class="col-5">
+                          <p>Thank ,</p>
+                          <h2>You</h2>
+                          <p class="address"> for your visit <br><tr *ngFor = "let item of listData">
+                            <td><span>Mr {{item.name}}</span></td>
+                          </tr> <br> </p>
+                          <div class="txn mt-2">TXN: XXXXXXX</div>
+                      </div>
+
+                    </div>
+                    <div class="row extra-info pt-3">
+                        <div class="col-7">
+                            <p>Payment Method: <span>Cash</span></p>
+                            <p>Order Number: <span>#868</span></p>
+                        </div>
+                        <div class="col-5">
+                            <p>Bill Date: <span>10-06.2021</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-area mt-4">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td class="id">Number Of Children</td>
+                            <td class="id">Number of Adults</td>
+                            <td class="id">Number of Nights</td>
+                            <td class="id">Number of Days</td>
+                            <td class="id">Room Type</td>
+                            <td class="id">Amount</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let item of listData">
+                        <td><span>{{item.child}}</span></td>
+                        <td><span>{{item.adult}}</span></td>
+                        <td><span>{{item.night}}</span></td>
+                        <td><span>{{item.date}}</span></td>
+                        <td><span>{{item.roomtype}}</span></td>
+                        <td><span>Rs.{{item.amount}}</span></td>
+                      </tr>
+                    </tbody>
+
+                </table>
+            </section>
+        </div>
+    </div>
+
+
+
+
+
+
+
+ ...
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+
+
+

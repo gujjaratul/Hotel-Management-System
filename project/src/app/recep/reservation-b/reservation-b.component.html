@@ -1,0 +1,50 @@
+<body>
+
+<mat-toolbar color="primary">
+  <span>Hotel Management System</span>
+
+</mat-toolbar>
+<br><br>
+
+<div class="but">
+<button  mat-raised-button  color="primary" (click)= "navi()"><mat-icon>flip_to_back</mat-icon>Back To Reservation Page</button>
+</div>
+
+<div *ngIf = "alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Reservation Done</strong>
+  <button  (click)= "closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<br><br>
+<div class="container">
+<form #myform = "ngForm" (ngSubmit)= "create();  myform.resetForm()">
+
+  <div class="form-group">
+    <label >Name</label>
+    <input type="text " name="name" [(ngModel)]= "reservation.name" class="form-control">
+  </div>
+
+  <div class="form">
+    <label >Number Of Children</label>
+    <input type="number " name="child" [(ngModel)]= "reservation.child" class="form-control">
+  </div>
+
+  <div class="form">
+    <label >Number Of Adult</label>
+    <input type="number " name="adult" [(ngModel)]= "reservation.adult" class="form-control">
+  </div>
+  <div class="form">
+    <label >Number Of Days</label>
+    <input type="number " name="date" [(ngModel)]= "reservation.date" class="form-control">
+  </div>
+  <div class="form">
+    <label >Number Of Night</label>
+    <input type="number " name="night" [(ngModel)]= "reservation.night" class="form-control">
+  </div>
+  <br>
+  <button class="btn btn-primary">Submit</button>
+</form>
+<br><br>
+</div>
+</body>

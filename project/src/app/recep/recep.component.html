@@ -1,0 +1,130 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h2 class="modal-title strong" id="exampleModalLabel">Profile</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+ <!-- <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" border="0" class="img-circle"></a> -->
+          <h3 class="media-heading">Joe Sixpack <br> <small>Receptionist</small></h3>
+          <div class="text-center">
+          <img src="../../assets/image/download.png"  width="140" height="140">
+          <h2><strong>Work : </strong></h2><br>
+              <span>Add Customer</span><br>
+              <span>Making Reservations</span><br>
+              <span>Issues Bills</span>
+</div>
+
+
+
+          <p class="text-left"><strong>Bio: </strong><br>
+            The Role of the Receptionist is to Add Customers, Issues their Bill and Make Reservations</p>
+          <br>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- toolabar  -->
+<mat-toolbar color="primary">
+  <span>Hotel Management System</span>
+  <span class="example-spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon matBadge="2" matBadgePosition="above after">notifications</mat-icon>
+  </button> -->
+
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+  [matTooltip]= "message.value" (click)= "authService.logoutUser()" >
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- sidenave -->
+<mat-sidenav-container color = "primary" >
+  <mat-sidenav #sidenav mode= "side" >
+    <mat-nav-list >
+      <div class="profile-card" >
+        <div class="header">
+          <h2 >Receptionist</h2>
+          <h4>recep@1234</h4>
+        </div>
+        <i class='fas fa-user-alt' style='font-size:48px;color:black'></i>
+      </div>
+      <mat-divider></mat-divider>
+      <br>
+      <h2 matSubheader>Options</h2>
+
+  <button mat-flat-button data-bs-toggle="modal" data-bs-target= "#exampleModal"><mat-icon>person</mat-icon>Profile</button>
+  <a [routerLink]= "['/reserv']" mat-list-item><mat-icon>event_seat</mat-icon><strong> Reservation</strong></a>
+  <a [routerLink]= "['/bill']" mat-list-item> <i class="material-icons">done</i><strong> Issue Bill</strong></a>
+  <button mat-flat-button (click) ="pay()"> <mat-icon>payment</mat-icon>Payment</button>
+  <mat-divider></mat-divider>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-icon-button>
+      <mat-icon (click)= "sidenav.toggle()" [matTooltip]= "message2.value">menu</mat-icon>
+    </button>
+
+<h1 class="text-center pb-5">WELCOME TO RECEPTIONIST LOGIN</h1>
+
+<router-outlet></router-outlet>
+
+<!--Add Customer Button-->
+<div class="but">
+  <button mat-raised-button color="primary" (click)= "newDetail($event)"><mat-icon>add</mat-icon>Add New Customer</button>
+  </div>
+  <br><br>
+
+<!--Search Bar-->
+<div>
+      <input type="text"   [(ngModel)]= "searchValue" class="form-control" id="search" placeholder="Search" >
+    </div>
+
+
+
+
+<!-- customer detail table -->
+  <div class="card-header card-header-warning">
+    <h4 class="card-title">Guests Details</h4>
+
+</div>
+<div class="table-responsive">
+    <table class="table table-hover table-dark table-bordered " mat-table>
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">DataBase Generated ID</th>
+          <th scope="col">Cutomer Name</th>
+          <th scope="col">Customer Phone</th>
+          <th scope="col">Customer Address</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let detail of details  | searchfilter:searchValue" >
+          <td scope="col">{{ detail?._id }}</td>
+          <td scope="col">{{ detail?.name }}</td>
+          <td scope="col">{{ detail?.phone }}</td>
+          <td scope="col">{{detail?.adhar }}</td>
+          <td scope="col"><button class="btn btn-primary" (click) = "update(detail)" ><mat-icon>update</mat-icon>Update</button>
+
+          <button class="btn btn-danger" (click) = "delete(detail)" ><mat-icon>delete</mat-icon>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+</mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,48 @@
+<mat-toolbar color="accent">
+  <span>Hotel Management System</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<br>
+<div *ngIf = "alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Inventory Added Sucessfully</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="but">
+  <button mat-raised-button color= "accent" (click)= "nav()">Back To Manager</button>
+</div>
+
+<h1>Create Inventory</h1>
+<div class="container">
+<form #myform = "ngForm" (ngSubmit)= "createInUp() ; myform.resetForm()">
+
+<div class="form">
+  <label>Room Type</label>
+  <select [(ngModel)]= "manager.roomtype" name="roomtype" class="form-control" required>
+    <option *ngFor= "let c of roomtype" [ngValue] = "c.name">{{c?.name}}</option>
+ </select>
+</div>
+  <br><br>
+
+  <div class="form-group">
+    <label >Basic Price</label>
+    <input type="text " name="price" [(ngModel)]= "manager.price" class="form-control"  required/>
+  </div>
+
+  <div class="form-group">
+    <label >Per Day Price</label>
+    <input type="text " name="price" [(ngModel)]= "manager.dayprice" class="form-control" required/>
+  </div>
+
+  <div class="form-group">
+    <label>Status</label>
+    <select [(ngModel)]= "manager.status" name="status" class="form-control" required>
+      <option *ngFor= "let c of status" [ngValue] = "c.show">{{c?.show}}</option>
+   </select>
+  </div>
+  <button class="btn btn-primary" [disabled]= "!myform.valid">Submit</button>
+</form>
+</div>
+

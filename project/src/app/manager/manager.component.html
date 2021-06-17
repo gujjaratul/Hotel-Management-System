@@ -1,0 +1,117 @@
+<!-- manager profile Model -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h2 class="modal-title strong" id="exampleModalLabel">Profile</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+      <h3 class="media-heading">Mike Ross <br> <small>Manager</small></h3>
+       <div class="text-center">
+         <img src="../../assets/image/430-4304254_owner-icon-image-souleymane-wane.png"  width = "300" height="200">
+          <h2><strong>Work : </strong></h2><br>
+              <span>Add Inventories</span><br>
+
+</div>
+          <p class="text-left"><strong>Bio: </strong><br>
+       The Role of the Manager is to Add The Inventory Details </p>
+          <br>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<mat-toolbar color="warn">
+  <span>Hotel Management System</span>
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+  (click)= "authService.logoutUser()" [matTooltip] = "message.value">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode= "side" [(opened)]= "opened" class="mat-elevation-z8">
+    <mat-nav-list>
+      <div class="profile-card">
+        <div class="header">
+          <h2>Manager</h2>
+          <h4>manager@1234</h4>
+        </div>
+        <i class='fas fa-user-alt' style='font-size:48px;color:black'></i>
+      </div>
+      <mat-divider></mat-divider>
+
+  <button mat-button class="menu-button" data-bs-toggle="modal" data-bs-target= "#exampleModal">
+    <mat-icon>person</mat-icon>
+    <span>Profile</span>
+  </button>
+<br><br>
+  <mat-divider></mat-divider>
+  <br>
+  <button mat-button class="menu-button" (click) = "newInvent($event)">
+    <mat-icon>info</mat-icon>
+    <span>Add Inventory</span>
+  </button>
+
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-icon-button>
+      <mat-icon (click)= "sidenav.toggle()" [matTooltip]= "message2.value">menu</mat-icon>
+    </button>
+
+    <h1 class="text-center pb-5">WELCOME TO MANAGER's LOGIN</h1>
+
+    <div class="card-header card-header-warning">
+      <h4 class="card-title">InventoryDetails</h4>
+
+                </div>
+<div class="card-body table-responsive">
+  <table class="table table-hover">
+      <thead class="text-warning">
+          <th>ID</th>
+          <th>Room Type</th>
+          <th>Basic Price</th>
+          <th>Per Day Price</th>
+        <th>Status</th>
+
+          <th>Operations</th>
+
+      </thead>
+      <tbody>
+         <tr *ngFor = "let manager of managers ">
+          <td>{{manager._id}}</td>
+          <td>{{manager.roomtype}}</td>
+          <td>{{manager.price}}</td>
+          <td>{{manager.dayprice}}</td>
+          <td>{{manager.status}}</td>
+<td><button class="btn btn-secondary" (click) = "DoUpdate(manager)" [matTooltip]= "message4.value">
+  <mat-icon>edit</mat-icon>
+</button>
+<button class="btn btn-danger" (click)= "doDelete(manager)" [matTooltip]= "message3.value">
+  <mat-icon>delete</mat-icon>
+</button></td>
+         </tr>
+      </tbody>
+  </table>
+</div>
+  </mat-sidenav-content>

@@ -1,0 +1,48 @@
+<body>
+
+   <mat-toolbar color="primary">
+    <span>Hotel Management System</span>
+
+  </mat-toolbar>
+<br><br>
+
+
+
+
+
+  <div class="but">
+    <button mat-raised-button color="warn" (click)= "newReservation($event)"><mat-icon>add</mat-icon>Add New Reservation</button>
+    </div>
+
+  <div class="col-md-8 mt-4 mb-4 bom">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Number of Children</th>
+          <th>Adults</th>
+          <th>Date</th>
+          <th>Night</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let reservation of reservations">
+          <td><span>{{reservation.name}}</span></td>
+          <td><span>{{reservation.child}}</span></td>
+          <td><span>{{reservation.adult}}</span></td>
+          <td><span>{{reservation.date}}</span></td>
+          <td><span>{{reservation.night}}</span></td>
+          <td><button type="button" class="btn btn-danger" (click)= "Delete(reservation)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="but">
+    <button mat-raised-button color="accent" (click)= "back()"><mat-icon>flip_to_back</mat-icon>Back to Receptionist</button>
+    </div>
+
+
+  </body>
+

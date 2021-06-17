@@ -1,0 +1,172 @@
+
+
+<!-- Modal for Registration-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Register Someone</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <form class="form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input [(ngModel)]= "registerUserData.email" name="email" type="text" class="form-control rounded 0">
+          </div>
+          <div class="form-group">
+            <label for="email">password</label>
+            <input [(ngModel)]= "registerUserData.password" name="password" type="text"  class="form-control rounded 0">
+          </div>
+          <button class="btn btn-primary" (click)= "registerUser()" data-dismiss="modal">Register</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- model for profile -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h2 class="modal-title strong" id="exampleModalLabel">Profile</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+      <h3 class="media-heading">Happy Sharma <br> <small>Owner</small></h3>
+       <div class="text-center">
+         <img src="../../assets/image/images.png"  width = "140" height="140">
+          <h2><strong>Work : </strong></h2><br>
+              <span>View Reports</span><br>
+              <span>Add Employee Details</span><br>
+
+</div>
+          <p class="text-left"><strong>Bio: </strong><br>
+       The Role of the Owner is to Add The details of the Employees , for example their job Profiles
+      ,Salary,Departments etc</p>
+          <br>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<mat-toolbar color="accent">
+
+
+  <span>Hotel Management System</span>
+  <span class="example-spacer"></span>
+
+
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+ (click) = "authService.logoutUser()"  [matTooltip]= "message.value">
+    <mat-icon>logout</mat-icon>
+  </button>
+
+
+</mat-toolbar>
+
+
+
+
+<mat-sidenav-container>
+<mat-sidenav #sidenav mode= "side" [(opened)]= "opened" class="mat-elevation-z8">
+  <mat-nav-list>
+    <div class="profile-card">
+      <div class="header">
+        <h2>Owner</h2>
+        <h4>owner@1234</h4>
+      </div>
+      <i class='fas fa-user-alt' style='font-size:48px;color:black'></i>
+    </div>
+    <mat-divider></mat-divider>
+
+<button mat-button class="menu-button" data-bs-toggle="modal" data-bs-target= "#exampleModal">
+  <mat-icon>person</mat-icon>
+  <span>Profile</span>
+</button>
+
+<mat-divider></mat-divider>
+
+<button mat-button class="menu-button" data-toggle="modal" data-target="#exampleModalCenter">
+  <mat-icon>add</mat-icon>
+  <span>Add Credentials</span>
+</button>
+  </mat-nav-list>
+
+
+</mat-sidenav>
+<mat-sidenav-content>
+  <button mat-icon-button>
+    <mat-icon (click)= "sidenav.toggle()" [matTooltip] = "message2.value">menu</mat-icon>
+  </button>
+
+  <h1 class="text-center pb-5">WELCOME TO ONWER's LOGIN</h1>
+
+<div id="divchart">
+  <canvas id="myChart"></canvas>
+</div><br>
+    <div class="card-header card-header-warning">
+          <h4 class="card-title">Employees Details</h4>
+ <div class="but"><button  mat-raised-button color="accent" (click) = "newdep($event)">
+   <mat-icon>add</mat-icon>Add New Employee Details</button></div>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Job Profiles</th>
+                                <th>Salary(Rs.)</th>
+                              <th>Address</th>
+
+                                <th>Operations</th>
+
+                            </thead>
+                            <tbody>
+                               <tr *ngFor = "let use of user ">
+                                <td>{{use._id}}</td>
+                                <td>{{use.username}}</td>
+                                <td>{{use.job}}</td>
+                                <td>{{use.salary}}</td>
+                                <td>{{use.address}}</td>
+<td><button class="btn btn-secondary" (click) = "doUpdate(use)" [matTooltip] = "message4.value"><mat-icon>edit</mat-icon></button>
+ <button class="btn btn-danger" (click)= "doDelete(use)" [matTooltip] = "message3.value"><mat-icon>delete</mat-icon></button></td>
+                               </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+</mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+

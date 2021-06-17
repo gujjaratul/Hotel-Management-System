@@ -1,0 +1,46 @@
+
+
+/* mat-sidenav{
+   background :
+} */
+mat-nav-list{
+  color: rgb(12, 1, 1);
+
+}
+.but{
+text-align: right;
+
+}
+h3{
+  text-align:center;
+  font-weight:900;
+  font-size:xx-large;
+  font-style: oblique;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+h4{
+text-align: center;
+font-family: sans-serif;
+font-style: oblique;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+h2{
+  font-family: cursive;
+}
+.profile-card{
+  text-align: center;
+}
+
+mat-sidenav-container{
+  height: 100%;
+}
+mat-sidenav, mat-sidenav-content{
+  padding: 1px;
+}
+mat-sidenav{
+
+  width: 200px;
+}
